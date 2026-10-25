@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThandaPoint by AliTech – AC Service &amp; Rent</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ice:#EAF6FA;--deep:#06344A;--sea:#0E7C9B;--sun:#F2A20C;--ink:#102631;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Mukta,system-ui,sans-serif;color:var(--ink);background:var(--ice);line-height:1.6}
+h1,h2,h3,.logo{font-family:"Baloo 2",system-ui,sans-serif;margin:0}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:var(--deep);color:#fff;position:sticky;top:0;z-index:5}
+.logo{font-size:1.5rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.logo svg{width:34px;height:34px}
+.logo small{display:block;font-size:.65rem;font-weight:600;color:#9fd3e3;margin-top:-8px}
+header a.call{background:var(--sun);color:var(--deep);padding:8px 16px;border-radius:30px;font-weight:600;text-decoration:none}
+.hero{background:var(--deep);color:#fff;padding:56px 5vw 90px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:800;max-width:14ch;line-height:1.05}
+.hero p{max-width:46ch;color:#cfe8f1;font-size:1.1rem}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 1rem Mukta,sans-serif;padding:12px 24px;border-radius:30px;text-decoration:none;background:var(--sun);color:var(--deep)}
+.btn.alt{background:transparent;color:#fff;border:2px solid #5fb6cd}
+.flake{position:absolute;right:-40px;top:-30px;width:320px;opacity:.12}
+main{max-width:920px;margin:0 auto;padding:0 5vw}
+section{padding:44px 0}
+section h2{font-size:2rem;color:var(--deep)}
+.sub{color:#456;margin:4px 0 20px}
+.panel{background:#fff;border-radius:18px;padding:24px;box-shadow:0 8px 30px rgba(6,52,74,.1)}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border:1.5px solid #b6d3dd;border-radius:10px;font:inherit;background:#fbfeff}
+input:focus,select:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.pay label{margin:0;border:2px solid #b6d3dd;border-radius:12px;padding:12px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.pay input{width:auto}
+.pay label:has(input:checked){border-color:var(--sea);background:#e3f4f9}
+#upiBox{display:none;margin-top:12px;background:#fff8e6;border:1.5px dashed var(--sun);border-radius:12px;padding:12px}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tab{flex:1;padding:10px;border-radius:12px;border:2px solid var(--sea);background:#fff;color:var(--sea);font:600 1rem Mukta;cursor:pointer}
+.tab.on{background:var(--sea);color:#fff}
+.slip{display:none;margin-top:24px;background:#fff;border:2px dashed var(--deep);border-radius:6px;padding:22px;max-width:420px}
+.slip h3{color:var(--deep);border-bottom:2px solid var(--deep);padding-bottom:6px}
+.slip table{width:100%;border-collapse:collapse;margin-top:10px}
+.slip td{padding:5px 0;vertical-align:top;border-bottom:1px solid #dde}
+.slip td:first-child{color:#567;width:38%}
+.msg{margin-top:10px;font-weight:600;color:var(--sea)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.info a{color:var(--sea);font-weight:600}
+.ticketwrap{padding:0 5vw;margin-top:-34px;position:relative;z-index:2}
+.ticket{display:grid;grid-template-columns:auto 1fr auto;align-items:center;max-width:820px;margin:0 auto;background:var(--sun);color:var(--deep);border-radius:18px;text-decoration:none;box-shadow:0 14px 34px rgba(6,52,74,.28);position:relative;overflow:hidden}
+.ticket::before,.ticket::after{content:"";position:absolute;left:158px;width:26px;height:26px;border-radius:50%;background:var(--ice)}
+.ticket::before{top:-13px}.ticket::after{bottom:-13px}
+.pct{font:800 4rem/1 "Baloo 2",sans-serif;padding:14px 26px;width:172px;text-align:center;border-right:3px dashed var(--deep);position:relative}
+.pct small{font-size:1.8rem}
+.pct span{display:block;font-size:1.2rem;letter-spacing:.2em}
+.tmid{padding:12px 18px;display:flex;flex-direction:column;gap:2px}
+.tmid b{font:800 1.3rem/1.2 "Baloo 2",sans-serif}
+.tmid span{font-size:.95rem}
+.tmid em{font-style:normal;font-weight:600;background:var(--deep);color:#fff;border-radius:20px;padding:2px 12px;align-self:flex-start;margin-top:4px;font-size:.9rem}
+.tgo{background:var(--deep);color:#fff;align-self:stretch;display:flex;align-items:center;padding:0 20px;font:800 1.1rem/1.2 "Baloo 2",sans-serif;text-align:center}
+@media(max-width:600px){.ticket{grid-template-columns:auto 1fr}.tgo{grid-column:1/-1;justify-content:center;padding:10px}.ticket::before,.ticket::after{left:118px}.pct{width:130px;font-size:3rem;padding:12px 8px}}
+@media(prefers-reduced-motion:no-preference){.ticket{animation:pop .7s ease-out both}@keyframes pop{from{transform:scale(.92) rotate(-1.5deg);opacity:0}to{transform:none;opacity:1}}}
+.offer{background:var(--sun);color:var(--deep);text-align:center;padding:12px 5vw;font-weight:600}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.svc div{background:#fff;border-radius:14px;padding:18px;border-left:6px solid var(--sea);font-family:"Baloo 2",sans-serif;font-size:1.2rem;color:var(--deep)}
+.note{margin-top:14px;color:#345}
+footer{background:var(--deep);color:#9fd3e3;text-align:center;padding:22px}
+@media print{body *{visibility:hidden}.slip,.slip *{visibility:visible}.slip{position:absolute;left:0;top:0;display:block;border:0}}
+@media(prefers-reduced-motion:no-preference){.flake{animation:spin 90s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 40 40" fill="none" stroke="#F2A20C" stroke-width="3" stroke-linecap="round"><path d="M20 4v32M6 12l28 16M6 28l28-16"/></svg><div>ThandaPoint<small>by AliTech</small></div></div>
+  <a class="call" href="tel:+919540732967">📞 Call karein</a>
+</header>
+
+<div class="hero">
+  <svg class="flake" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M20 2v36M4 11l32 18M4 29l32-18"/></svg>
+  <h1>AC ki service, ghar baithe book karein.</h1>
+  <p>AC, washing machine, microwave aur geyser ki service aur repair, saath me kiraye par AC. Booking karein, hamari team aapke bataye samay par pahunchegi.</p>
+  <div class="btns"><a class="btn" href="#book">Service book karein</a><a class="btn alt" href="#rent">AC kiraye par lein</a></div>
+</div>
+
+<div class="ticketwrap">
+  <a class="ticket" href="#book" aria-label="10 percent off, abhi book karein">
+    <div class="pct">10<small>%</small><span>OFF</span></div>
+    <div class="tmid">
+      <b>Har service par flat 10% chhoot</b>
+      <span>AC · Washing Machine · Microwave · Geyser</span>
+      <em>Ghar aane ka charge sirf ₹150</em>
+    </div>
+    <div class="tgo">Abhi book<br>karein ›</div>
+  </a>
+</div>
+<main>
+<section id="services">
+  <h2>Hum ye sab theek karte hain</h2>
+  <p class="sub">Ghar par aakar service aur repair.</p>
+  <div class="svc"><div>❄️ AC</div><div>🧺 Washing Machine</div><div>📡 Microwave</div><div>🚿 Geyser</div></div>
+  <p class="note"><b>Ghar par aane ka charge: ₹150.</b> Har service par 10% ki chhoot abhi chal rahi hai.</p>
+</section>
+<section id="book">
+  <h2>Service book karein</h2>
+  <p class="sub">Form bharte hi hamare paas aapki booking pahunch jati hai aur AI assistant aapko confirmation call karega.</p>
+  <div class="panel">
+    <form id="bookForm">
+      <div class="row">
+        <div><label for="name">Aapka naam</label><input id="name" required></div>
+        <div><label for="phone">Mobile number</label><input id="phone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="10 digit number"></div>
+      </div>
+      <label for="address">Pura pata (jahan service leni hai)</label>
+      <textarea id="address" rows="2" required></textarea>
+      <div class="row">
+        <div><label for="service">Service</label>
+          <select id="service"><option>AC service</option><option>AC repair / gas charging</option><option>AC install / uninstall</option><option>Washing machine repair</option><option>Microwave repair</option><option>Geyser repair</option></select></div>
+        <div><label for="acCount">AC ki sankhya</label><input id="acCount" type="number" min="1" value="1" required></div>
+      </div>
+      <div class="row">
+        <div><label for="date">Tareekh</label><input id="date" type="date" required></div>
+        <div><label for="time">Samay</label><input id="time" type="time" required></div>
+      </div>
+      <p class="note" style="margin:14px 0 0">Ghar par aane ka charge ₹150 · Abhi har service par 10% off</p>
+      <label>Payment kaise karenge?</label>
+      <div class="pay">
+        <label><input type="radio" name="pay" value="Cash" checked> 💵 Cash (service ke baad)</label>
+        <label><input type="radio" name="pay" value="UPI"> 📱 UPI (seedha company ko)</label>
+      </div>
+      <div id="upiBox">UPI se pay karein: <b id="upiIdTxt"></b><br><a id="upiLink" class="btn" style="margin-top:8px" href="#">UPI app kholein</a></div>
+      <br><button class="btn" type="submit">Booking confirm karein</button>
+      <div class="msg" id="bookMsg" role="status"></div>
+    </form>
+    <div class="slip" id="slip">
+      <h3>ThandaPoint · Service Slip</h3>
+      <table id="slipTable"></table>
+      <p style="font-size:.85rem;color:#567">Dhanyavaad! Ye slip sambhal kar rakhein.</p>
+      <button class="btn" onclick="window.print()">Slip print / save karein</button>
+    </div>
+  </div>
+</section>
+
+<section id="rent">
+  <h2>AC kiraye par (Rent)</h2>
+  <p class="sub">Mahine ke kiraye par AC lagwayein. Advance, lagne aur utarne ki tareekh ka poora record hum rakhte hain.</p>
+  <div class="panel">
+    <form id="rentForm">
+      <div class="row">
+        <div><label for="rname">Naam</label><input id="rname" required></div>
+        <div><label for="rphone">Mobile number</label><input id="rphone" type="tel" pattern="[0-9]{10}" maxlength="10" required></div>
+      </div>
+      <label for="raddress">Jahan AC lagana hai (pata)</label><textarea id="raddress" rows="2" required></textarea>
+      <div class="row">
+        <div><label for="rtype">AC type</label><select id="rtype"><option>1 Ton Split</option><option>1.5 Ton Split</option><option>Window AC</option></select></div>
+        <div><label for="rstart">Kab se chahiye</label><input id="rstart" type="date" required></div>
+      </div>
+      <div class="row">
+        <div><label for="rmonths">Kitne mahine</label><input id="rmonths" type="number" min="1" value="3" required></div>
+        <div><label for="rpay">Advance ka tareeka</label><select id="rpay"><option>Cash</option><option>UPI</option></select></div>
+      </div>
+      <br><button class="btn" type="submit">Rent request bhejein</button>
+      <div class="msg" id="rentMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Hamse sampark karein</h2>
+  <div class="info panel">
+    <div><b>Phone</b><br><a href="tel:+919540732967">9540732967</a><br><a href="tel:+917838453384">7838453384</a></div>
+    <div><b>Hamara address</b><br><a href="https://share.google/6fp0kQhxS6KAElcS2" target="_blank" rel="noopener">Google Map par dekhein</a></div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/919540732967" target="_blank" rel="noopener">9540732967</a><br><a href="https://wa.me/917838453384" target="_blank" rel="noopener">7838453384</a></div>
+  </div>
+</section>
+</main>
+<footer>© ThandaPoint by AliTech · Service Today, Comfort Tomorrow</footer>
+
+<script>
+// ====== SIRF YE 2 CHEEZEN BADLEIN ======
+const SHEET_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const UPI_ID = "yourupi@bank";
+// =======================================
+const $ = id => document.getElementById(id);
+try{ if(!sessionStorage.getItem("tpv")){ sessionStorage.setItem("tpv","1");
+  if(!SHEET_URL.startsWith("PASTE")) fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},
+  body:JSON.stringify({type:"visit",ref:document.referrer||"direct",mobile:/Mobi|Android/i.test(navigator.userAgent)?"phone":"computer"})}); } }catch(e){}
+const today = new Date().toISOString().slice(0,10);
+$("date").min = today; $("rstart").min = today;
+$("upiIdTxt").textContent = UPI_ID;
+$("upiLink").href = "upi://pay?pa=" + encodeURIComponent(UPI_ID) + "&pn=ThandaPoint&cu=INR";
+
+document.querySelectorAll('input[name=pay]').forEach(r => r.addEventListener('change', () => {
+  $("upiBox").style.display = document.querySelector('input[name=pay]:checked').value === "UPI" ? "block" : "none";
+  $("upiLink").href = "upi://pay?pa=" + encodeURIComponent(UPI_ID) + "&pn=ThandaPoint&cu=INR";
+}));
+
+async function send(data){
+  if(SHEET_URL.startsWith("PASTE")) throw new Error("Sheet URL abhi set nahi hai");
+  await fetch(SHEET_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain"}, body: JSON.stringify(data)});
+}
+
+$("bookForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const id = "TP" + Date.now().toString().slice(-7);
+  const d = {type:"service", id, name:$("name").value, phone:$("phone").value, address:$("address").value,
+    service:$("service").value, count:$("acCount").value, date:$("date").value, time:$("time").value,
+    payment:document.querySelector('input[name=pay]:checked').value};
+  const rows = [["Slip no.",id],["Naam",d.name],["Mobile",d.phone],["Pata",d.address],["Service",d.service+" x "+d.count],["Tareekh / samay",d.date+", "+d.time],["Payment",d.payment],["Visit charge","₹150"],["Offer","10% off har service par"]];
+  $("slipTable").innerHTML = rows.map(()=>"<tr><td></td><td></td></tr>").join("");
+  [...$("slipTable").rows].forEach((tr,i)=>{tr.cells[0].textContent=rows[i][0];tr.cells[1].textContent=rows[i][1]});
+  $("slip").style.display = "block";
+  $("bookMsg").textContent = "Booking bheji ja rahi hai...";
+  try{
+    await send(d);
+    $("bookMsg").textContent = "Booking ho gayi. Visit charge Rs 150 hai aur 10% off milega. Jald hi aapko confirmation call aayegi.";
+  }catch(err){
+    $("bookMsg").textContent = "Slip ban gayi, par booking hamare tak nahi pahunchi (" + err.message + "). Kripya 9540732967 par call karein.";
+  }
+  $("slip").scrollIntoView({behavior:"smooth"});
+});
+
+$("rentForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const d = {type:"rent", id:"RT"+Date.now().toString().slice(-7), name:$("rname").value, phone:$("rphone").value,
+    address:$("raddress").value, acType:$("rtype").value, start:$("rstart").value, months:$("rmonths").value, advanceMode:$("rpay").value};
+  $("rentMsg").textContent = "Request bheji ja rahi hai...";
+  try{ await send(d); $("rentMsg").textContent = "Request mil gayi. Hum jald aapse sampark karenge."; e.target.reset(); }
+  catch(err){ $("rentMsg").textContent = "Request nahi gayi: " + err.message + ". Kripya call karein."; }
+});
+</script>
+</body>
+</html>
